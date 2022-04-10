@@ -81,6 +81,8 @@ class bar extends Phaser.Scene {
 
         this.questTaken = false;
 
+        this.rewardTaken = false;
+
         this.keyE = this.add.image(0, 0, 'keyE').setScale(0.4).setVisible(false);
 
         
@@ -279,7 +281,7 @@ class bar extends Phaser.Scene {
             this.barQuestEnd.setVisible(true);
             this.exiting = 2;
 
-            this.gold += 200; // Récompense de fin de quête ( même si l'argent ne sert pas )
+            
 
             setTimeout(() => {
 
@@ -290,6 +292,15 @@ class bar extends Phaser.Scene {
 
 
         }
+
+        if (this.player.x >= 700 && this.player.x <= 1050 && this.player.y <= 350 && this.rewardTaken == false){
+
+
+            this.gold += 200; // Récompense de fin de quête ( même si l'argent ne sert pas )
+            this.rewardTaken = true;
+
+        }
+
 
         // Affichage de la touche à appuyer 
 
